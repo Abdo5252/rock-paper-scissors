@@ -22,7 +22,7 @@
             margin-bottom: 20px;
         }
         header h1 {
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin: 0;
             color: #fff;
         }
@@ -74,9 +74,24 @@
             white-space: pre-wrap;
             word-wrap: break-word;
         }
-        #result h3 {
-            margin: 15px 0 5px;
+        #rules {
+            font-size: 1.1em;
+            background: rgba(0, 0, 0, 0.8);
             color: #f4f4f9;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+        }
+        .rule-item {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .rule-item pre {
+            font-family: monospace;
+            font-size: 0.9em;
+            background: none;
+            padding: 0;
+            margin: 10px 0;
         }
         footer {
             margin-top: 20px;
@@ -92,13 +107,41 @@
     </header>
     <div class="container">
         <button onclick="showRules()">📜 Show Rules</button>
-        <pre id="rules" style="display: none;">
-            ******* Rules ******
-            1) You choose, and the computer chooses.
-            2) Rock smashes scissors -> Rock wins.
-            3) Scissors cut paper -> Scissors wins.
-            4) Paper covers rock -> Paper wins.
-        </pre>
+        <div id="rules" style="display: none;">
+            <div class="rule-item">
+                <pre>
+    _______
+---'   _____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+                </pre>
+                <p>Rock smashes scissors -> Rock wins.</p>
+            </div>
+            <div class="rule-item">
+                <pre>
+    _______
+---'   _____)
+      _______)
+      _______)
+      ______)
+---._________)
+                </pre>
+                <p>Paper covers rock -> Paper wins.</p>
+            </div>
+            <div class="rule-item">
+                <pre>
+   _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+                </pre>
+                <p>Scissors cut paper -> Scissors wins.</p>
+            </div>
+        </div>
         <h2>Choose your option:</h2>
         <div class="choices">
             <button class="choice" onclick="playGame('rock')">🪨 Rock</button>
@@ -117,7 +160,7 @@
         </div>
     </div>
     <footer>
-        <p>Created with 💖 by Your Name</p>
+        <p>Created with 💖 by Abdelrhman </p>
     </footer>
     <script>
         const symbols = {
