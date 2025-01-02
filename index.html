@@ -6,54 +6,94 @@
     <title>Rock, Paper, Scissors Game</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
             text-align: center;
-            margin: 20px;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            padding: 20px;
         }
         .choices {
             display: flex;
             justify-content: center;
-            margin: 20px;
+            margin: 20px 0;
         }
         .choice {
-            margin: 0 10px;
+            margin: 0 15px;
             cursor: pointer;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .choice:hover {
+            background-color: #45a049;
         }
         pre {
             font-size: 14px;
-            color: #333;
+            color: #444;
+            background-color: #e9e9e9;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to Rock, Paper, Scissors Game!</h1>
-    <button onclick="showRules()">Show Rules</button>
-    <pre id="rules" style="display: none;">
-        ******* Rules ******
-        1) You choose, and the computer chooses.
-        2) Rock smashes scissors -> Rock wins.
-        3) Scissors cut paper -> Scissors wins.
-        4) Paper covers rock -> Paper wins.
-    </pre>
-    <div>
+    <header>
+        <h1>Welcome to Rock, Paper, Scissors Game!</h1>
+    </header>
+    <div class="container">
+        <button onclick="showRules()">Show Rules</button>
+        <pre id="rules" style="display: none;">
+            ******* Rules ******
+            1) You choose, and the computer chooses.
+            2) Rock smashes scissors -> Rock wins.
+            3) Scissors cut paper -> Scissors wins.
+            4) Paper covers rock -> Paper wins.
+        </pre>
         <h2>Choose your option:</h2>
         <div class="choices">
-            <div class="choice" onclick="playGame('rock')">Rock</div>
-            <div class="choice" onclick="playGame('paper')">Paper</div>
-            <div class="choice" onclick="playGame('scissors')">Scissors</div>
+            <button class="choice" onclick="playGame('rock')">Rock</button>
+            <button class="choice" onclick="playGame('paper')">Paper</button>
+            <button class="choice" onclick="playGame('scissors')">Scissors</button>
+        </div>
+        <div id="result">
+            <h3>Your Choice:</h3>
+            <pre id="user-choice"></pre>
+
+            <h3>Computer's Choice:</h3>
+            <pre id="computer-choice"></pre>
+
+            <h3>Result:</h3>
+            <pre id="game-result"></pre>
         </div>
     </div>
-    <div id="result">
-        <h3>Your Choice:</h3>
-        <pre id="user-choice"></pre>
-
-        <h3>Computer's Choice:</h3>
-        <pre id="computer-choice"></pre>
-
-        <h3>Result:</h3>
-        <pre id="game-result"></pre>
-    </div>
-
     <script>
         const symbols = {
             rock: `    _______
